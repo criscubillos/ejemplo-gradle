@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script{
                     stage('Build & Test'){
-
+                        sh "./gradlew clean build" 
                     }
                     stage('Sonar'){
                         //corresponde a lo que se configuro en global tools config en jenkins local
