@@ -15,6 +15,7 @@ pipeline {
                         def ejecucion = load 'gradle.groovy'
                         ejecucion.call()
                     }else {
+                        println "Ejecutando MAVEN GROOVY"
                         def ejecucion = load 'maven.groovy'
                         ejecucion.call()
                     }
