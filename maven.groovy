@@ -6,7 +6,7 @@
 
 def call() {
     
-        agent any
+        //agent any
         tools {
             maven 'MVN 3.6.3'
         }
