@@ -31,8 +31,8 @@ def call() {
         stage('Ejecutar') {
       steps {
         sh 'mvn spring-boot:run &'
-      //sh 'sleep 10'
-      //sh "curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing' "
+        //sh 'sleep 10'
+        //sh "curl -X GET 'http://192.168.100.3:8090/rest/mscovid/test?msg=testing' "
       }
         }
 
