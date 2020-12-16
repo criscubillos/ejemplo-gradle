@@ -3,13 +3,7 @@
     def ejecucion = load 'script.groovy'
     ejecucion.call()
 */
-
-def call() {
-    
-        //agent any
-        tools {
-            maven 'MVN 3.6.3'
-        }
+def call() {    
         stages {
             stage('Compilar') {
                 steps {
