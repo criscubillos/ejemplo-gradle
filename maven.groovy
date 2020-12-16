@@ -4,7 +4,7 @@
     ejecucion.call()
 */
 def call() {    
-        stages {
+        
             stage('Compilar') {
                 steps {
                     git( branch: 'main', url: 'https://github.com/criscubillos/ejemplo-maven.git')
@@ -35,7 +35,7 @@ def call() {
                     }
                 }
             }
-        }
+        
     
 }
 return this
