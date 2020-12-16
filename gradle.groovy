@@ -18,7 +18,7 @@ def call() {
   }
   stage('Run') {
     sh 'nohup bash gradlew bootRun &'
-    sleep 20
+    //sleep 20
   }
   stage('Rest') {    
     //sh "curl -X GET 'http://192.168.100.3:8090/rest/mscovid/test?msg=testing' "
