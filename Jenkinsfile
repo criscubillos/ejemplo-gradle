@@ -10,6 +10,7 @@ pipeline {
             steps {
                 script {
                     env.TAREA = 'SIN ESPECIFICAR'
+                    env.buildtool = params.herramienta
                     
                     println params.herramienta
 
@@ -28,12 +29,12 @@ pipeline {
     post {
         success {
             println "TERMINO Y LA ULTIMA TAREA FUE: ${env.TAREA}"
-            slackSend (color: 'good', message: "[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución exitosa")
+            slackSend (color: 'good', message: "[Cristian Cubillos][${env.JOB_NAME}][${env.buildtool}] Ejecución exitosa")
         }
         failure {
             println "FALLO Y LA ULTIMA TAREA FUE: ${env.TAREA}"
 
-            slackSend (color:'danger', message: "[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución fallida en stage [${env.TAREA}]")
+            slackSend (color:'danger', message: "[Cristian Cubillos][${env.JOB_NAME}][${env.buildtool}] Ejecución fallida en stage [${env.TAREA}]")
         }
     }
 }
