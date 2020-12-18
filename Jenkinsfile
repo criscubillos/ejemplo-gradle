@@ -9,12 +9,9 @@ pipeline {
         stage('Pipeline') {
             steps {
                 script {
-
                     env.TAREA = 'SIN ESPECIFICAR'
                     
-
                     println params.herramienta
-
 
                     if (params.herramienta == 'gradle') {
                         def ejecucion = load 'gradle.groovy'
@@ -30,12 +27,13 @@ pipeline {
     }
     post {
         success {
-            println "TERMINO Y LA ULTIMA TAREA FUE: ${env.TAREA}" 
-            slackSend (message: "[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución exitosa")
+            println "TERMINO Y LA ULTIMA TAREA FUE: ${env.TAREA}"
+            slackSend (color: 'good', message: "[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución exitosa")
         }
         failure {
-            println "FALLO Y LA ULTIMA TAREA FUE: ${env.TAREA}" 
-            slackSend (message: "[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución fallida en stage [${env.TAREA}]")
+            println "FALLO Y LA ULTIMA TAREA FUE: ${env.TAREA}"
+
+            slackSend (color:'danger', message: "[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución fallida en stage [${env.TAREA}]")
         }
     }
 }
