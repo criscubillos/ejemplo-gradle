@@ -31,11 +31,11 @@ pipeline {
     post {
         success {
             println "TERMINO Y LA ULTIMA TAREA FUE: ${env.TAREA}" 
-            slackSend (message: '[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución exitosa')
+            slackSend (message: "[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución exitosa")
         }
         failure {
             println "FALLO Y LA ULTIMA TAREA FUE: ${env.TAREA}" 
-            slackSend (message: '[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución fallida en stage [${env.TAREA}]')
+            slackSend (message: "[Cristian Cubillos][${env.JOB_NAME}][${params.herramienta}] Ejecución fallida en stage [${env.TAREA}]")
         }
     }
 }
